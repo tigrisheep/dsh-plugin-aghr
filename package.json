@@ -1,0 +1,63 @@
+{
+  "name": "dsh-plugin-aghr",
+  "version": "0.6.0",
+  "private": false,
+  "description": "AGHR（自适应粒度人机协同求解）：一个四职责位中文 agent preset、一份 AGHR skill，以及 Plugins 页上的说明页。",
+  "author": "tigrisheep",
+  "icon": "./icon.svg",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./assets/persona-aghr.md": "./assets/persona-aghr.md",
+    "./CHANGELOG.md": "./CHANGELOG.md",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./skill/SKILL.md": "./skill/SKILL.md",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "assets/*.md",
+    "cordis.patch.yml",
+    "icon.svg",
+    "lib/client.js",
+    "lib/index.js",
+    "locale/*.json",
+    "skill/SKILL.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "aghr",
+    "agent-preset",
+    "skill"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/tigrisheep/dsh-plugin-aghr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tigrisheep/dsh-plugin-aghr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tigrisheep/dsh-plugin-aghr/issues"
+  }
+}

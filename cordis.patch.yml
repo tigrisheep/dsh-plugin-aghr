@@ -1,0 +1,22 @@
+# dsh-plugin-aghr 的 bundle 补丁层。
+#
+# 本文件只声明本包自己的**一行**，预设不在这里。
+# 预设与技能都由 Host 半 lib/index.js 在运行时注册：
+#   - 预设 `aghr`（显示名「AGHR 团队（中文）」，order 6）走 ctx.agentPresets.register()；
+#   - 技能 `aghr` 走 ctx.skills.register()，正文是包内 skill/SKILL.md。
+# 本包只注册**一个**预设，没有 aghr-lead，也不再依赖任何 dsh-aghr-preset 包。
+# 这样预设的行表由代码挑选：换机器、换 dsh 版本都不用整份抄别人的插件表，
+# 也不会把某台机器的绝对路径、私有 MCP 配置带出去。
+#
+# 这一行两手都要：
+#   host 半把包内 skill/SKILL.md 注册成技能 aghr，并注册预设 aghr；
+#   同时它让本包出现在 host Loader 的行表里，@deepseek-ai/dsh-client-modules
+#   按行名解析到本包的 package.json、读 dsh.client，才会加载浏览器半 lib/client.js。
+#
+# 预设里的压缩能力由代码里的一个 group 行承载：
+#   id: compaction / cordis:group / isolate: {compaction, toolResultPruner}
+#   组内放 compaction-basic、command-compact、tool-result-pruner 三行。
+#   隔离域必须覆盖组内每个 provider 的服务名，理由见 lib/index.js 的 COMPACTION_ROWS 注释。
+- insert:
+    - id: dsh-plugin-aghr
+      name: dsh-plugin-aghr

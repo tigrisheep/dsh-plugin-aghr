@@ -1,0 +1,5 @@
+# 回退备份与本地产物，不进版本库
+cordis.patch.yml.bak-*
+*.tgz
+.DS_Store
+node_modules/
