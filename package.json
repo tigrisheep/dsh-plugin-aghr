@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-aghr",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": false,
   "description": "AGHR（自适应粒度人机协同求解）：一个四职责位中文 agent preset、一份 AGHR skill，以及 Plugins 页上的说明页。",
   "author": "tigrisheep",
